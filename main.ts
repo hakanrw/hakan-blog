@@ -10,4 +10,8 @@ import manifest from "./fresh.gen.ts";
 import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "./twind.config.ts";
 
+import { dotEnvConfig as config } from './depts.ts';
+
+config({ export: true });
+
 await start(manifest, { plugins: [twindPlugin(twindConfig)] });
