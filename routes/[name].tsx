@@ -8,7 +8,7 @@ export default function Greet(props: PageProps) {
       <Head>
         <title>Article</title>
       </Head>
-      <Header active="" />
+      <Header active="" loggedIn={false} />
       <div>
         Example {props.params.name}
       </div>
