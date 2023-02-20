@@ -1,8 +1,11 @@
 import { ComponentChildren } from "preact";
 import LemonIcon from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/lemon-2.tsx";
 import BrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-github.tsx";
+import { ArticleType } from "../lib/articles.ts";
+
+
 type Props = {
-  blog: {title: string, href: string}[];
+  blog: ArticleType[];
 };
 
 export default function Footer({ blog }: Props) {
