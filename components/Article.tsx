@@ -9,7 +9,7 @@ interface ArticleProps {
 export function Article(props: ArticleProps) {
   return (
     <RoundedContainer className="hover:bg-gray-200 mx-auto hover:cursor-pointer mb-5">
-      <div class="flex">
+      <div class="flex flex-col sm:flex-row">
         <div class="flex-1">
           <div class="text-2xl ml-1 font-bold my-1">
             {props.title}
@@ -19,7 +19,7 @@ export function Article(props: ArticleProps) {
           </div>
         </div>
         <div class="flex-initial p-2">
-          <img src={props.img} class="w-64 rounded-md max-h-48 object-cover" />
+          <img src={props.img} class="w-full sm:w-64 rounded-md max-h-48 object-cover" />
         </div>
       </div>
     </RoundedContainer>

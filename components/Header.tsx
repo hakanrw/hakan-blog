@@ -15,8 +15,8 @@ export default function Header({ active, loggedIn }: Props) {
 
   return (
     <div class="bg-white w-full max-w-screen-lg py-6 px-8 flex flex-col md:flex-row gap-4 mx-auto">
-      <div class="flex items-center flex-1" href="/">
-        <a class="flex items-center flex-1">
+      <div class="flex items-center flex-1">
+        <a class="flex items-center flex-1" href="/">
           <BookIcon />
           <div class="text-2xl  ml-1 font-bold">
             Hakan's Blog
