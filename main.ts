@@ -12,6 +12,8 @@ import twindConfig from "./twind.config.ts";
 
 import { dotEnvConfig as config } from './depts.ts';
 
-config({ export: true });
+const isDenoDeploy = Deno.env.get("DENO_DEPLOYMENT_ID") !== undefined;
+
+if (!isDenoDeploy) config({ export: true });
 
 await start(manifest, { plugins: [twindPlugin(twindConfig)] });
