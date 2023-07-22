@@ -35,10 +35,7 @@ export default function Header({ active, loggedIn }: Props) {
               {menu.name}
             </a>
           </li>
-        ))}
-        <li class="hidden md:block">
-          <LogButton loggedIn={loggedIn} />
-        </li>
+        ))} 
       </ul>
     </div>
   );

@@ -15,7 +15,7 @@ export default function LogIn() {
       <div class="min-h-[600px] flex flex-col justify-center">
       <Login />
       </div>
-      <Footer blog={getArticles()}/>
+      <Footer blog={[]}/>
     </>
   );
 }

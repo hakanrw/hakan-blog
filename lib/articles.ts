@@ -1,26 +1,37 @@
-export type ArticleType = {
+import { extract } from "$std/front_matter/any.ts";
+import { join } from "$std/path/mod.ts";
+
+export interface ArticleType {
+  slug: string;
   title: string;
-  img: string;
-  href: string;
+  publishedAt: Date;
   content: string;
+  snippet: string;
+  image: string;
 }
 
+export async function getArticles(): Promise<ArticleType[]> {
+  const files = Deno.readDir("./articles");
+  const promises = [];
+  for await (const file of files) {
+    const slug = file.name.replace(".md", "")
+    promises.push(getArticle(slug));
+  }
 
-export function getArticles(): ArticleType[] {
-  const articles = [
-    {
-      title: "Humongus",
-      img: "https://i.kym-cdn.com/photos/images/original/002/462/780/73c",
-      href: "#",
-      content: "Amog u."
-    },
-    {
-      title: "Blog launched",
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
-      href: "#",
-      content: "My first blog"
-    }
-  ]
-
+  const articles = await Promise.all(promises);
+  articles.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
   return articles;
+}
+
+export async function getArticle(slug: string): Promise<ArticleType> {
+  const text = await Deno.readTextFile(join("./articles", `${slug}.md`));
+  const { attrs, body } = extract<ArticleType>(text);
+  return {
+    slug,
+    title: attrs.title as string,
+    publishedAt: new Date(attrs.publishedAt),
+    content: body,
+    snippet: attrs.snippet,
+    image: attrs.image,
+  };
 }

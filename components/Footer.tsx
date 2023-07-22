@@ -17,8 +17,8 @@ export default function Footer({ blog }: Props) {
     {
       title: "About",
       children: [
-        { title: "Hakan", href: "#" },
-        { title: "candar.dev", href: "#" },
+        { title: "Hakan", slug: "#" },
+        { title: "candar.dev", slug: "#" },
       ],
     },
   ];
@@ -45,7 +45,7 @@ export default function Footer({ blog }: Props) {
               <li class="mt-2" key={child.title}>
                 <a
                   class="text-gray-500 hover:text-gray-700"
-                  href={child.href}
+                  href={child.slug}
                 >
                   {child.title}
                 </a>
