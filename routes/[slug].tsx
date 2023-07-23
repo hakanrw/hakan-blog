@@ -3,6 +3,8 @@ import Header from "../components/Header.tsx";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import Footer from "../components/Footer.tsx";
 import { ArticleType, getArticle } from "../lib/articles.ts";
+import { CSS, render } from "$gfm";
+import { tw, css, apply } from "twind/css";
 
 interface Data {
   article: ArticleType;
@@ -19,13 +21,27 @@ export const handler: Handlers = {
 export default function Article({ data }: PageProps<Data>) {
   const article = data.article;
 
+  if (article === null) return (
+    <>
+      <Head>
+        <title>Not Found</title>
+      </Head>
+      <Header active="" loggedIn={false} />
+      <div class="text-4xl text-center mt-[40vh]">Page not found.</div>
+    </>
+  );
+
   return (
     <>
       <Head>
         <title>{article.title}</title>
+        <style dangerouslySetInnerHTML={{ __html: CSS }} />
       </Head>
       <Header active="" loggedIn={false} />
-      <div class="mx-auto max-w-screen-lg py-6 px-8 min-h-[70vh]">
+      <div class="mx-auto sm:w-[450px] md:w-[600px] px-5 md:px-0 py-6 min-h-[70vh]">
+        <div class="mb-3">
+          <img src={article.image} class="w-full md:w-[600px] rounded-md max-h-[300px] object-cover" />
+        </div>
         <h3 class="text(3xl gray-900) font-bold">{article.title}</h3>
         <time class="text-gray-500 text-lg">
           {new Date(article.publishedAt).toLocaleDateString("en-us", {
@@ -34,8 +50,8 @@ export default function Article({ data }: PageProps<Data>) {
             day: "numeric",
           })}
         </time>
-        <div class="mt-8 text-lg"
-        dangerouslySetInnerHTML={{ __html: article.content }}
+        <div class="mt-8 !text-lg markdown-body"
+        dangerouslySetInnerHTML={{ __html:  render(article.content) }}
         />
       </div>
       <Footer blog={[]}/>

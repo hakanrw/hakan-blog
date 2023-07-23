@@ -16,7 +16,7 @@ export function Article(props: ArticleType) {
             </div>
           </div>
           <div class="flex-initial p-2">
-            <img src={props.image} class="w-full sm:w-64 rounded-md max-h-48 object-cover" />
+            <img src={props.image} class="w-full sm:w-64 rounded-md h-40 object-cover" />
           </div>
         </div>
       </RoundedContainer>

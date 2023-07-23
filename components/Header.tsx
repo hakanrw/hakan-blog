@@ -14,7 +14,7 @@ export default function Header({ active, loggedIn }: Props) {
   ];
 
   return (
-    <div class="bg-white w-full max-w-screen-lg py-6 px-8 flex flex-col md:flex-row gap-4 mx-auto">
+    <div class="bg-white w-full max-w-screen-lg py-6 px-8 flex flex-col sm:flex-row gap-4 mx-auto">
       <div class="flex items-center flex-1">
         <a class="flex items-center flex-1" href="/">
           <BookIcon />
@@ -22,7 +22,6 @@ export default function Header({ active, loggedIn }: Props) {
             Hakan's Blog
           </div>
         </a>
-      <div class="md:hidden"><LogButton loggedIn={loggedIn} /></div>
       </div>
       <ul class="flex items-center gap-6">
         {menus.map((menu) => (

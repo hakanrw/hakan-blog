@@ -23,6 +23,8 @@ export default function Footer({ blog }: Props) {
     },
   ];
 
+  if (blog.length === 0) menus.shift();
+
   return (
     <div class="bg-white flex flex-col md:flex-row w-full max-w-screen-lg gap-8 md:gap-16 px-8 py-8 text-sm max-w-screen-lg mx-auto">
       <div class="flex-1">
