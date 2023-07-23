@@ -39,10 +39,14 @@ export default function Article({ data }: PageProps<Data>) {
           name="description"
           content={article.snippet}
         />
+        <meta property="og:type" content="website" />
         <meta
-          name="image"
-          content={article.image}
+          property="og:image"
+          content={"https://blog.hakan.candar.dev/" + article.image}
         />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.snippet} />
+        <meta property="og:url" content={"https://blog.hakan.candar.dev/" + article.slug} />
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
       </Head>
       <Header active="" loggedIn={false} />
