@@ -42,7 +42,7 @@ export default function Article({ data }: PageProps<Data>) {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={"https://blog.hakan.candar.dev/" + article.image}
+          content={"https://blog.hakan.candar.dev" + article.image}
         />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.snippet} />
