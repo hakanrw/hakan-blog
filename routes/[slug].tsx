@@ -35,6 +35,14 @@ export default function Article({ data }: PageProps<Data>) {
     <>
       <Head>
         <title>{article.title}</title>
+        <meta
+          name="description"
+          content={article.snippet}
+        />
+        <meta
+          name="image"
+          content={article.image}
+        />
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
       </Head>
       <Header active="" loggedIn={false} />
