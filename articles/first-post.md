@@ -1,7 +1,7 @@
 ---
 title: This is my first blog post! 🚀
 publishedAt: 2023-06-01T15:00:00.000Z
-snippet: This is an excerpt of my first blog post.
+snippet: Let's read how the process went
 image: /tmb/first-blog.jpg
 ---
 
