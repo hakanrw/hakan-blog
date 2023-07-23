@@ -11,11 +11,13 @@ import Header from "../components/Header.tsx";
 import Counter from "../islands/Counter.tsx";
 
 import { ArticleType, getArticles } from "../lib/articles.ts";
+import Posts from "../islands/Posts.tsx";
 
 interface Data {
   loggedIn: boolean;
   username?: string;
   articles: ArticleType[];
+  page: number;
 }
 
 export const handler: Handlers = {
@@ -66,11 +68,7 @@ export default function Home({ data }: PageProps<Data>) {
         <title>Hakan's Blog</title>
       </Head>
       <Header active="/" loggedIn={data.loggedIn} />
-      <div class="p-4 mx-auto max-w-screen-md min-h-[70vh]">
-        {
-          articles.map(article => <Article {...article} />)
-        }
-      </div>
+      <Posts articles={articles} />
       <Footer blog={articles}/>
     </>
   );
