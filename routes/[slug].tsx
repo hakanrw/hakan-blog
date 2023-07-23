@@ -47,6 +47,14 @@ export default function Article({ data }: PageProps<Data>) {
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.snippet} />
         <meta property="og:url" content={"https://blog.hakan.candar.dev/" + article.slug} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:image"
+          content={"https://blog.hakan.candar.dev" + article.image}
+        />
+        <meta property="twitter:title" content={article.title} />
+        <meta property="twitter:description" content={article.snippet} />
+        <meta property="twitter:url" content={"https://blog.hakan.candar.dev/" + article.slug} />
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
       </Head>
       <Header active="" loggedIn={false} />
