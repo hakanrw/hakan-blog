@@ -1,7 +1,7 @@
 ---
 title: This is my first blog post! 🚀
 publishedAt: 2023-06-01T15:00:00.000Z
-snippet: It has been some while, and I managed to make my blog fully functional! I used Deno with Fresh 🍋, and it turned out great 😁.
+snippet: It has been some while, and I managed to make my blog fully functional! I used Deno with Fresh 🍋, and it turned out great 😁
 image: /tmb/first-blog.jpg
 ---
 
